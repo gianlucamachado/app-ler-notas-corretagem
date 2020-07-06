@@ -1,0 +1,19 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title size="small">
+      Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label> Dark Mode </ion-label>
+      <ion-toggle slot="end" [(ngModel)]="dark" (ionChange)="updateDarkMode()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
