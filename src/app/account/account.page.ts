@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from '../services/dark-mode/dark-mode.service';
 
 @Component({
   selector: 'app-account',
@@ -12,32 +13,19 @@ export class AccountPage implements OnInit {
   /**
    * @ignore
    */
-  constructor() { }
+  constructor(
+    private darkModeService: DarkModeService,
+  ) { }
 
   /**
    * @ignore
    */
   ngOnInit() {
-    // verify dark mode event
-    this.createListenerDarkMode();
-  }
-
-  createListenerDarkMode() {
-    const prefersColor = window.matchMedia('(prefers-color-scheme: dark)');
-    this.dark = prefersColor.matches;
-    this.updateDarkMode();
-
-    prefersColor.addEventListener(
-      'change',
-      (mediaQuery: any) => {
-        this.dark = mediaQuery.matches;
-        this.updateDarkMode();
-      },
-    );
+    this.dark = this.darkModeService.getCurrentValue();
   }
 
   updateDarkMode() {
-    document.body.classList.toggle('dark', this.dark);
+    this.darkModeService.updateDarkMode(this.dark);
   }
 
 }
