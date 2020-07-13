@@ -1,0 +1,22 @@
+.content-background {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+
+    -webkit-filter: grayscale(60%);
+    filter: grayscale(60%);
+}
+
+.ion-grid-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ion-row-logo-content {
+    height: 100vh;
+    flex: 1;
+}
