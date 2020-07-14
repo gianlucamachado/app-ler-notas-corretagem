@@ -16,7 +16,6 @@ export class WelcomePage implements OnInit {
   constructor(
     private modalController: ModalController,
     private darkModeService: DarkModeService,
-    // private router: Router,
   ) { }
 
   ngOnInit() {
@@ -30,7 +29,7 @@ export class WelcomePage implements OnInit {
   }
 
   clickCreateAccount() {
-    // this.router.navigate(['tabs/tabs/tab1']);
+
   }
 
   async clickLogin() {

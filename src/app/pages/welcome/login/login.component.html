@@ -8,6 +8,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen class="ion-padding">
+  <form [formGroup]="loginForm">
 
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked" color="primary"> E-mail </ion-label>
+        <ion-input #inputEmail type="email" formControlName="email" required maxlength="100" placeholder="E-mail">
+        </ion-input>
+      </ion-item>
+
+      <div *ngFor="let validation of messages?.email" class="validation-content">
+        <ion-text class="small" mode="ios" color="danger" *ngIf="validateError(validation, 'email')">
+          {{ validation?.message }}
+        </ion-text>
+      </div>
+
+      <ion-item class="ion-margin-top">
+        <ion-label position="stacked" color="primary"> Senha </ion-label>
+        <ion-input required type="password" formControlName="password" maxlength="10" placeholder="Senha"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let validation of messages?.password" class="validation-content">
+        <ion-text class="small" mode="ios" color="danger" *ngIf="validateError(validation, 'password')">
+          {{ validation?.message }}
+        </ion-text>
+      </div>
+    </ion-list>
+
+    <div class="ion-padding ion-margin-top">
+      <ion-button color="primary" expand="block" size="default" mode="ios" strong="true" (click)="clickLogin()"
+        class="ion-text-uppercase">
+        Entrar
+      </ion-button>
+    </div>
+  </form>
 </ion-content>
